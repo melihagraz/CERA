@@ -1,0 +1,127 @@
+---
+title: "ROC Analysis Report"
+output: 
+  html_document:
+    css: styles.css
+    toc: true
+    toc_float: true
+    number_sections: false
+    theme: lumen
+    highlight: textmate
+    class: 'center'
+params:
+  roc_plot: NA
+  roc_table: NA
+  chatgpt_interpretation: NA
+  chatgpt_interpretationPL: NA
+  sales_text: NA
+  cl_dist_plot: NA
+  cht_int_cls: NA
+  pred_dist_plot: NA
+  cht_pred_cls: NA
+  combined_placeholder: NA
+  chatgpt_int: NA
+  int_text: NA
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(ggplot2)
+library(grid)
+library(knitr)
+library(kableExtra)
+
+```
+## 1. INTRODUCTION
+
+
+ 
+
+```{r}
+params$chatgpt_int
+ 
+```
+
+
+
+## 2.RESULTS
+
+```{r}
+params$sales_text
+ 
+```
+Note that the after running scispace API, we will enrich this Introduction part.
+
+
+### Data quality checking 
+
+```{r dist-plot, fig.cap="Figure 1: Distribution of biomarker.", echo=FALSE, warning=FALSE, message=FALSE}
+
+# The `params` object is available in the document.
+plot(params$pred_dist_plot)
+ 
+```
+
+```{r}
+# The `params` object is available in the document.
+params$cht_pred_cls
+
+
+```
+
+
+
+
+```{r, fig.cap="Figure 2: Class distributions of the output.", warning=FALSE, message=FALSE,warning=FALSE, message=FALSE}
+
+# The `params` object is available in the document.
+plot(params$cl_dist_plot)
+ 
+```
+
+ 
+```{r}
+# The `params` object is available in the document.
+params$cht_int_cls
+
+
+```
+
+
+### ROC plot
+ 
+```{r, fig.cap="Figure 3: ROC plot of the analysis.", warning=FALSE, message=FALSE,warning=FALSE, message=FALSE}
+# The `params` object is available in the document.
+plot(params$roc_plot)
+```
+
+```{r}
+# The `params` object is available in the document.
+params$chatgpt_interpretationPL
+```
+
+### Performance measures
+
+ 
+
+```{r}
+knitr::kable(params$roc_table, caption = "Table 1: Performance measures of the ROC analysis.", format = "html") %>%
+  kable_styling()
+```
+
+
+```{r}
+# The `params` object is available in the document.
+params$chatgpt_interpretation
+```
+
+
+
+## 3. CONCLUSION
+ 
+
+```{r}
+params$combined_placeholder
+```
+
+ 
